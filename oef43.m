@@ -1,5 +1,4 @@
-syms t
+t=0:0.01:2*pi;
 
-r=@(theta)sin(4*t);
-
-fplot(r*cos(t),r*sin(t)) %vb oplossing fout?
+r=sin(4*t);
+polarplot(max(r,0)) %enkel positieve r waarden tonen
