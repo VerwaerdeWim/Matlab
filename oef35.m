@@ -5,12 +5,12 @@ r=@(t)sqrt(x(t)^2+y(t)^2);
 
 fplot(x(t),y(t))
 
-dr=diff(r(t));
-fdr=@(t)subs(dr,t);
+hulpdr=diff(r(t));
+dr=@(t)subs(hulpdr,t);
 
-ddr=diff(fdr(t));
-fddr=@(t)subs(ddr,t);
+hulpddr=diff(dr(t));
+ddr=@(t)subs(hulpddr,t);
 
-s=solve(t>-pi,t<pi,fdr(t)==0);
+s=solve(t>-pi,t<pi,dr(t)==0);
 
-s(fddr(s)<0)
+s(ddr(s)<0)
