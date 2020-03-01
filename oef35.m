@@ -13,10 +13,4 @@ fddr=@(t)subs(ddr,t);
 
 s=solve(t>-pi,t<pi,fdr(t)==0);
 
-%fddr(t) in de solve steken werkt niet, vandaar een for loop
-
-for i=1:length(s)
-    if fddr(s(i))<0
-        s(i)
-    end
-end
+s(fddr(s)<0)
