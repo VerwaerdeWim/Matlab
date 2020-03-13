@@ -1,20 +1,13 @@
-syms theta
-
-r1=@(theta)1+0*theta;
-r2=@(theta)2*cos(3*theta);
+syms t
 
 hold on
-fplot(r1*cos(theta),r1*sin(theta),'r')
-fplot(r2*cos(theta),r2*sin(theta),'g')
+fplot(cos(t),sin(t),'r')
+fplot(2*cos(3*t)*cos(t),2*cos(3*t)*sin(t),'g')
 axis equal
 hold off
 
-s=solve(r1(theta)==r2(theta),theta>0,theta<2*pi);
-x=double(solve(r2(theta)==0));
+s1=solve(2*cos(3*t)==1,0<=t<=2*pi)  % snijpunten onderling
+s2=solve(2*cos(3*t)==0)             % snijpunt x as     
 
-rr1=@(theta)1/2*r1(theta).^2;
-rr2=@(theta)1/2*r2(theta).^2;
 
-solution=6*(integral(rr1,0,double(s(1)))+integral(rr2,double(s(1)),double(x)))
-
-controle=(2/3*pi)-((1/2)*3^(1/2))
+6*(int(1/2*1^2,0,s1(1))+int(1/2*(2*cos(3*t))^2,s1(1),s2))

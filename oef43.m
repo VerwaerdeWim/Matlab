@@ -1,4 +1,4 @@
 t=0:0.01:2*pi;
 
-r=sin(4*t);
-polarplot(max(r,0)) %enkel positieve r waarden tonen
+r=max(sin(4*t),0);  %elke r<0 wordt vervangen door 0
+polarplot(r) 
